@@ -19,7 +19,7 @@ st.set_page_config(page_title="서울시 가구 데이터 대시보드", layout=
 # 1. 데이터 로드 및 전처리
 @st.cache_data
 def load_data():
-    df = pd.read_csv("data/seoul_hosehold_.csv")
+    df = pd.read_csv("seoul_hosehold_.csv")
     df = df.replace('-', '0')
     if '2010' in df.columns:
         df['2010'] = pd.to_numeric(df['2010'], errors='coerce').fillna(0).astype(int)
@@ -137,4 +137,5 @@ with tab3:
 
 st.sidebar.markdown("---")
 st.sidebar.info("Data Source: 서울시 가구 통계 (2010)")
+
 
